@@ -6,16 +6,42 @@ package br.com.datastructures;
  * @author marcio
  */
 public class ExampleDataStructures {
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // How to use my stack data structures
-        
-        // --- <STACK> ---
 
-        // Example string stack
+    public static void testQueue(){
+        // Example string queue
+/*
+        Queue<Integer> queue = new Queue<>(2);        
+        
+        queue.printQueue();
+        queue.add(1);
+        queue.printQueue();
+        queue.add(2);
+        queue.printQueue();
+        
+        queue.remove();
+//System.out.println(queue.remove());
+        queue.printQueue();
+        //System.out.println(queue.remove());
+        queue.remove();
+        queue.printQueue();
+*/
+        Queue<String> messages = new Queue<>(3);
+        
+        messages.printQueue();
+        messages.add("stringA");
+        messages.add("stringB");
+        messages.add("stringC");
+        messages.printQueue();
+
+        messages.remove();
+        messages.printQueue();
+        
+        messages.add("stringD");
+        messages.printQueue();
+    }
+
+    public static void testStack(){
+                // Example string stack
         Stack<String> stack = new Stack<>(6);
             
         stack.push("C");
@@ -40,8 +66,23 @@ public class ExampleDataStructures {
         System.out.println(bookStack.pop());
         System.out.println(bookStack.pop());
 
-        // --- <STACK> ---
     }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // How to use my stack data structures
+        
+        // --- <STACK> ---
+        //testStack();
+        
+        // --- <STACK> ---
+        
+        // --- <QUEUE> ---
+        testQueue();
+    }
+    
+    
     
 }
 
