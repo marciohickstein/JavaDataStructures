@@ -7,6 +7,25 @@ package br.com.datastructures;
  */
 public class ExampleDataStructures {
 
+    public static void testLinkedList(){
+        LinkedList<String> list = new LinkedList<>();
+        Node<String> node1 = new Node<>("1");
+        Node<Integer> node2 = new Node<>(2);
+        Node<Double> node3 = new Node<>(3.0);
+        Node<Integer> node4 = new Node<>(2);
+
+        System.out.println(node1.equals(node1));
+        System.out.println(node1.equals(node2));
+        System.out.println(node2.equals(node3));
+        System.out.println(node2.equals(node4));
+
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        
+        list.printLinkedList();
+    }
+    
     public static void testQueue(){
         // Example string queue
 /*
@@ -79,10 +98,11 @@ public class ExampleDataStructures {
         // --- <STACK> ---
         
         // --- <QUEUE> ---
-        testQueue();
+        //testQueue();
+
+        // --- <LINKEDLIST> ---
+        testLinkedList();
     }
-    
-    
     
 }
 
