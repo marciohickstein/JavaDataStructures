@@ -8,7 +8,8 @@ package br.com.datastructures;
 public class ExampleDataStructures {
 
     public static void testLinkedList(){
-        LinkedList<String> list = new LinkedList<>();
+        LinkedList<Integer> listInt = new LinkedList<>();
+        LinkedList<String> listString = new LinkedList<>();
         Node<String> node1 = new Node<>("1");
         Node<Integer> node2 = new Node<>(2);
         Node<Double> node3 = new Node<>(3.0);
@@ -19,11 +20,70 @@ public class ExampleDataStructures {
         System.out.println(node2.equals(node3));
         System.out.println(node2.equals(node4));
 
-        list.add("1");
-        list.add("2");
-        list.add("3");
+        listString.add("A");
+        listString.add("b");
+        listString.add("C");
+        System.out.println("Print linked list of string");
+        listString.printLinkedList();
+
+        listString.remove("X");
+        System.out.println("Total elements " + listString.size());
+        listString.printLinkedList();
         
-        list.printLinkedList();
+        System.out.println("Print linked list of integer");
+
+        Node<Integer> removed = null;
+        
+        // List empty
+        // Remove element in empty list
+        removed = listInt.remove(2);
+        if (removed != null)
+            System.out.println("Element " + removed.getData() + " removed!");
+        listInt.printLinkedList();
+
+        // List 1 -> null
+        // Removing item in list with one element
+        listInt.add(1);
+        removed = listInt.remove(1);
+        if (removed != null)
+            System.out.println("Element " + removed.getData() + " removed!");
+        listInt.printLinkedList();
+
+        // List 1 -> 2 -> 3 -> null
+        listInt.add(1);
+        listInt.add(2);
+        listInt.add(3);
+        listInt.printLinkedList();
+        
+        // Remove second element in the middle of list
+        removed = listInt.remove(2);
+        if (removed != null)
+            System.out.println("Element " + removed.getData() + " removed!");
+        listInt.printLinkedList();
+
+        // List 1 -> 3 -> null
+        // Remove first element 
+        removed = listInt.remove(1);
+        if (removed != null)
+            System.out.println("Element " + removed.getData() + " removed!");
+        listInt.printLinkedList();
+
+        // List 3 -> null
+        removed = listInt.remove(3);
+        if (removed != null)
+            System.out.println("Element " + removed.getData() + " removed!");
+
+        // List 1 -> 2 -> 3 -> null
+        // Remove last element
+        listInt.add(1);
+        listInt.add(2);
+        listInt.add(3);
+        removed = listInt.remove(3);
+        listInt.printLinkedList();
+        if (removed != null)
+            System.out.println("Element " + removed.getData() + " removed!");
+
+        System.out.println("Total elements " + listInt.size());
     }
     
     public static void testQueue(){

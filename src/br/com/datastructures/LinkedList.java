@@ -17,6 +17,10 @@ public class LinkedList<T> {
     }
     
     public void printLinkedList(){
+        if (isEmpty()){
+            System.out.println("Empty list");
+            return ;
+        }
         int i = 0;
         Node node = head;
 
@@ -25,6 +29,23 @@ public class LinkedList<T> {
             node = node.getNext();
         }
     }
+
+    public int size(){
+        if (isEmpty()){
+            return 0;
+        }
+        int counter = 0;
+
+        Node node = head;
+
+        while(node != null){
+            counter++;
+            node = node.getNext();
+        }
+        
+        return counter;
+    }
+    
     public void add(T data){
         Node<T> newNode = new Node<>(data);
         
@@ -48,21 +69,25 @@ public class LinkedList<T> {
         if (isEmpty())
             return null;
 
-        Node<T> nodeToRemove = new Node<>(data);
+        Node<T> node2Remove = new Node<>(data);
 
-        Node node = head;
+        Node previousNode = null, testNode = head;
         
-        Node nextNode = node.getNext();
-
         do 
         {
-            if (node.equals(nodeToRemove))
+            if (testNode.equals(node2Remove))
             {
-                
+                if (previousNode == null){
+                    head = null;
+                }else{
+                    previousNode.setNext(testNode.getNext());
+                    testNode.setNext(null);
+                }
+                return testNode;
             }
-            node = nextNode;
-            nextNode = node.getNext();
-        }while(nextNode != null);
+            previousNode = testNode;
+            testNode = testNode.getNext();
+        }while(testNode != null);
 
         
         return null;
