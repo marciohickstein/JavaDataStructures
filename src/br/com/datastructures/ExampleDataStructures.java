@@ -85,6 +85,21 @@ public class ExampleDataStructures {
 
         System.out.println("Total elements " + listInt.size());
     }
+ 
+    public static void testNode(){
+        Node<Integer> nodeInteger = new Node<>(100);
+        Integer valueInteger = nodeInteger.getData();
+        
+        if (valueInteger == 100)
+            System.out.println("Test 1: OK");
+        else
+            System.out.println("Test 1: FAIL");
+        nodeInteger.setNext(new Node<>(200));
+        if (nodeInteger.getNext() == null)
+            System.out.println("Test 2: OK");
+        else
+            System.out.println("Test 2: FAIL");
+    }
     
     public static void testQueue(){
         // Example string queue
@@ -120,7 +135,7 @@ public class ExampleDataStructures {
     }
 
     public static void testStack(){
-                // Example string stack
+        // Example string stack
         Stack<String> stack = new Stack<>(6);
             
         stack.push("C");
@@ -161,7 +176,8 @@ public class ExampleDataStructures {
         //testQueue();
 
         // --- <LINKEDLIST> ---
-        testLinkedList();
+        testNode();
+        //testLinkedList();
     }
     
 }
